@@ -21,3 +21,62 @@ Author Information
 
 Author: Punit Grewal
 # Project-Ansible
+.
+├── ansible.cfg
+├── basics_playbooks
+├── files
+├── group_vars
+│   ├── all.yml
+│   ├── Production.yml
+│   └── Testing.yml
+├── host_vars
+│   ├── bkup
+│   │   ├── oracle7-n01.yml
+│   │   ├── oracle7-n02.yml
+│   │   ├── oracle8-n01.yml
+│   │   └── oracle8-n02.yml
+│   ├── oracle7-n01.yml
+│   ├── oracle7-n02.yml
+│   ├── oracle8-n01.yml
+│   └── oracle8-n02.yml
+├── inventory
+├── library
+├── module_utils
+├── README.md
+├── roles
+│   ├── update
+│   │   ├── defaults
+│   │   │   └── main.yml
+│   │   ├── files
+│   │   ├── handlers
+│   │   │   └── main.yml
+│   │   ├── meta
+│   │   │   └── main.yml
+│   │   ├── README.md
+│   │   ├── tasks
+│   │   │   └── main.yml
+│   │   ├── templates
+│   │   ├── tests
+│   │   │   ├── inventory
+│   │   │   └── test.yml
+│   │   └── vars
+│   │       └── main.yml
+│   └── var_test
+│       ├── defaults
+│       │   └── main.yml
+│       ├── files
+│       ├── handlers
+│       │   └── main.yml
+│       ├── meta
+│       │   └── main.yml
+│       ├── README.md
+│       ├── tasks
+│       │   └── main.yml
+│       ├── templates
+│       ├── tests
+│       │   ├── inventory
+│       │   └── test.yml
+│       └── vars
+│           └── main.yml
+├── site.yml
+└── templates
