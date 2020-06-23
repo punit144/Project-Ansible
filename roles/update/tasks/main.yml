@@ -1,0 +1,13 @@
+---
+- name: "Updating RedHat family servers"
+  tasks:
+    - name: Updating using Yum
+      yum:
+        name: "*"
+        state: latest
+      register: update_pk
+
+    - name: Output of Updated Packages
+      debug:
+        var: update_pk
+

@@ -1,0 +1,14 @@
+---
+# tasks file for var_test
+- name: Playbook to check variable precedence
+  file:
+    path: /home/pgrewal/{{ DR_NAME }}
+    owner: devops
+    state: directory
+    mode: 0755
+  register: var_out
+
+- name: Directory created {{ DR_NAME }}
+  debug:
+    var: var_out
+
