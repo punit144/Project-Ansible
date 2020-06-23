@@ -5,7 +5,7 @@ This is one of the ansible role which tests ansible different variable types
 and their precedence
 
 Precedence:
-command > playbook > role-var > host-var > group-var > global var
+command > role-var > playbook-var > host-var > group-var > global var
 
 Example: Create variable with any name which is same throughout your all above
 directory and see using register & debug module for the output change.
