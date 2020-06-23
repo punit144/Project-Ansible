@@ -1,6 +1,8 @@
 ---
 - name: "Testing all the servers connectivity and python interpreter"
   hosts: all
+# vars:
+#   DR_NAME: site_dr
   roles:
     # - update
     - var_test
