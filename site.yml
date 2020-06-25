@@ -7,4 +7,5 @@
     # - update
     # - var_test
     # - franklinkim.vim
-    - punit-vim8
+    # - punit-vim8
+    - punit-facts

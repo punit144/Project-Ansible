@@ -1,0 +1,12 @@
+---
+# tasks file for punit-facts
+- name: Gathering facts of host {{ ansible_hostname }}
+  setup:
+  register: g_fact
+
+- name: Creating facts files to /files directory.
+  lineinfile:
+    dest: /home/pgrewal/Project-Ansible//files/{{ ansible_hostname }}
+    create: yes
+    line: "{{ g_fact | to_nice_json }}"
+  delegate_to: localhost
