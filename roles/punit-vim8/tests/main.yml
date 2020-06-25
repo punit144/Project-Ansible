@@ -1,0 +1,6 @@
+---
+
+- hosts: all
+  sudo: yes
+  roles:
+    - punit-vim8

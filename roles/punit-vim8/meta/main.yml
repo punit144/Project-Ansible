@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  author: Punit
+  company: NA
+  description: Build vim8 on os_family RedHat 6 & 7 as 8 comes with vim 8.0 by
+               default.
+  min_ansible_version: 2.5+
+  license: Na
+  #
+  # Below are all platforms currently available. Just uncomment
+  # the ones that apply to your role.
+  #
+  platforms:
+    - name: Debian
+      versions:
+        - all

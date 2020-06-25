@@ -1,0 +1,8 @@
+---
+# For more information about default variables see:
+# http://www.ansibleworks.com/docs/playbooks_variables.html#id26
+#
+# package name (version)
+vim_package: vim
+# global vim configuration
+vim_config: []

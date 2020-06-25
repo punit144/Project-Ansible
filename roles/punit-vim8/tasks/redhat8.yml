@@ -1,0 +1,9 @@
+---
+- name: Installing vim using YUM
+  yum:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - git
+    - vim
+

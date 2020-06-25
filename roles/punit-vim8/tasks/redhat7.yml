@@ -1,0 +1,13 @@
+---
+- name: Downloading vim-8.x from git website to user {{ USER_ID }}
+  git:
+    repo: "https://github.com/vim/vim.git"
+    dest: "/home/{{ USER_ID }}/vim"
+
+- name: Configuring vim for python3 support and then building from source.
+  command: "{{ item }}"
+  args:
+    chdir: "/home/{{ USER_ID }}/vim/"
+  with_items:
+    - "/usr/bin/make"
+    - "/usr/bin/make install"

@@ -1,0 +1,50 @@
+---
+# vars file for punit-vim8
+vim8_dep:
+  - git
+  - ncurses-devel
+  - ruby
+  - ctags
+  - python3
+  - python-devel
+  - tcl-devel
+  - perl-devel
+  - perl-ExtUtils-ParseXS
+  - perl-ExtUtils-CBuilder
+  - perl-ExtUtils-Embed
+  - cscope
+  - gtk3-devel
+  - libSM-devel
+  - libXt-devel
+  - libXpm-devel
+  - libappstream-glib
+  - libacl-devel
+  - cmake
+  - gcc
+
+vim8_rmv:
+  - vim-common.x86_64
+  - vim-enhanced.x86_64
+  - vim-filesystem.x86_64
+  - vim-X11
+
+cmd_sudo: 'rpm -e --nodeps vim-minimal'
+
+#Make sure you insert valid user id which exist on your end host machine.
+USER_ID: pgrewal
+
+vim_pathogen: 'https://github.com/tpope/vim-pathogen.git'
+
+GIT_LINK:
+   - { link: 'https://github.com/kien/ctrlp.vim.git', name: ctrlp }
+   - { link: 'https://github.com/morhetz/gruvbox.git', name: gruvbox }
+   - { link: 'https://github.com/tomasr/molokai.git', name: molokai }
+   - { link: 'https://github.com/preservim/nerdtree.git', name: nerdtree }
+   - { link: 'https://github.com/vim-airline/vim-airline.git',
+       name: vim-arline }
+   - { link: 'https://github.com/vim-airline/vim-airline-themes.git',
+       name: vim-airline-themes }
+   - { link: 'https://github.com/tmhedberg/SimpylFold.git', name: SimplyFold }
+   - { link: 'https://github.com/jnurmine/Zenburn.git', name: Zenburn }
+
+...

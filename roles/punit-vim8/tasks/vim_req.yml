@@ -1,0 +1,17 @@
+---
+- name: Downloading Epel-release repo.
+  yum_repository:
+    baseurl: https://dl.fedoraproject.org/pub/epel/7Server/x86_64/
+    description: "Epel release."
+    name: epel-release
+    state: present
+  
+- name: ensure a list of packages installed required for vim8 build.
+  yum:
+    name: "{{ vim8_dep }}"
+    state: present
+  register: packages_out
+
+- name: List of installed packages
+  debug:
+    var: packages_out.results

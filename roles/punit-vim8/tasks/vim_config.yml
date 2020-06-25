@@ -1,0 +1,35 @@
+---
+- name: Confguring vimrc file for user {{ USER_ID }}
+  copy:
+    src: vimrc
+    dest: /home/{{ USER_ID }}/.vimrc
+    mode: 0644
+
+- name: Creating required directory .vim , autoload and bundle
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ USER_ID }}"
+    mode: 0775
+  with_items:
+    - '/home/{{ USER_ID }}/.vim'
+    - '/home/{{ USER_ID }}/.vim/autoload'
+    - '/home/{{ USER_ID }}/.vim/bundle'
+    - '/home/{{ USER_ID }}/.vim/colors'
+
+- name: Downloading vim bundles
+  git:
+    repo: "{{ item.link }}"
+    dest: "/home/{{ USER_ID }}/.vim/bundle/{{ item.name }}"
+  loop: "{{ GIT_LINK }}"
+  tags:
+    - vim_bundles
+
+- name: Downloading vim pathogen plugin
+  git:
+    repo: "{{ vim_pathogen }}"
+    dest: "/home/{{ USER_ID }}/.vim/autoload/pathogen"
+
+- name: Curl pathogen plugin so other plugins can be loaded during vim use.
+  shell: "curl -LSso /home/{{ USER_ID }}/.vim/autoload/pathogen.vim
+          https://tpo.pe/pathogen.vim"

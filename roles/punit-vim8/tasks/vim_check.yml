@@ -1,0 +1,19 @@
+---
+- name: removing old vim from host if exist.
+  yum:
+    name: "{{ vim8_rmv }}"
+    state: absent
+
+- name: removing vim-minimal but not sudo. (Ignore error if shows) 
+  shell: "{{ item }}"
+  args:
+    warn: no
+  with_items: "{{ cmd_sudo }}"
+  ignore_errors: yes
+
+- name: Create a symbolic link
+  file:
+    src: /usr/bin/python3.6
+    dest: /home/{{ USER_ID }}/python3
+    owner: "{{ USER_ID }}"
+    state: link
