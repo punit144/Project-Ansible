@@ -5,9 +5,10 @@
 # vars:
 #   DR_NAME: site_dr
   roles:
-    - punit-facts
-    # - update
-    # - var_test
+    # - punit-facts # Gathers facts of remote hosts and write to ansible server in /files dir.
+    # - update # Performs OS level update using yum/apt package manager.
+    # - var_test #
     # - franklinkim.vim
     # - punit-vim8
+    - punit-secrets
     
