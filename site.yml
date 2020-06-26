@@ -1,11 +1,13 @@
 ---
 - name: "Testing all the servers connectivity and python interpreter"
   hosts: all
+  gather_facts: no
 # vars:
 #   DR_NAME: site_dr
   roles:
+    - punit-facts
     # - update
     # - var_test
     # - franklinkim.vim
     # - punit-vim8
-    # - punit-facts
+    
