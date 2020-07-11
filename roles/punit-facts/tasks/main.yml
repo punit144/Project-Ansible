@@ -1,19 +1,19 @@
 ---
 # tasks file for punit-facts
-- name: Gathering facts of host {{ ansible_hostname }}
+- name: Gathering facts of hosts.
   setup:
     gather_subset: all
   register: g_fact
 
-- name: Creating facts files to /files directory.
+- name: Creating facts files to /facts directory.
   file:
-    dest: /home/pgrewal/Project-Ansible//files/{{ ansible_hostname }}.json
+    dest: /home/pgrewal/Project-Ansible//facts/{{ ansible_hostname }}.json
     state: absent
   delegate_to: localhost
 
-- name: Creating facts files to /files directory.
+- name: Creating facts files to /facts directory.
   lineinfile:
-    dest: /home/pgrewal/Project-Ansible//files/{{ ansible_hostname }}.json
+    dest: /home/pgrewal/Project-Ansible//facts/{{ ansible_hostname }}.json
     create: yes
     line: "{{ g_fact | to_nice_json }}"
   delegate_to: localhost
