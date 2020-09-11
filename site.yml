@@ -1,6 +1,6 @@
 ---
 - name: "Global Site File Started"
-  hosts: localhost 
+  hosts: localhost
   gather_facts: no
 # vars:
 #   DR_NAME: site_dr
