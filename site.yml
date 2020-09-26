@@ -8,6 +8,6 @@
     - punit-facts # Gathers facts of remote hosts and write to ansible server in /files dir.
     # - update # Performs OS level update using yum/apt package manager.
     # - var_test # Variable precedence check.
-    # - punit-vim8 # my own vim configuration setup on RedHat OS family of 7 and 8.
+    - punit-vim8 # my own vim configuration setup on RedHat OS family of 7 and 8.
     # - punit-secrets # Ansible vault basics
 ...
