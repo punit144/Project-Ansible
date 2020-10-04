@@ -6,11 +6,11 @@
     state: present
   loop: "{{ GROUPS }}"
 
-- name: Ensure user 'pgrewal' exist and also part of group devops.
+- name: Ensure user {{ USER_ID }} exist and also part of group {{ GROUPS }}.
   user:
     name: "{{ USER_ID }}"
     comment: Punit Grewal
-    group: "{{ item }}"
+    groups: "{{ item }}"
   loop: "{{ GROUPS }}"
 
 - name: Change password to default for 'root & pgrewal' users.
@@ -32,6 +32,7 @@
   pacman:
     update_cache: yes
     upgrade: yes
+  ignore_errors: yes
 
 - name: Install package using PACMAN on Manjaro
   pacman:
@@ -58,16 +59,23 @@
   pip:
     name: "{{ PY_PKGS }}"
 
-- name: Create required dirs such as .ssh
+- name: Checking if user {{ USER_ID }} has ssh key.
+  stat:
+    path: /home/{{ USER_ID }}/.ssh/id_rsa.pub
+  register: stat_result
+
+- name: Create required dirs such as .ssh.
   file:
     path: /home/pgrewal/.ssh
     state: directory
     mode: '0700'
     owner: "{{ USER_ID }}"
     group: devops
+  when: not stat_result.stat.exists
 
 - name: generate SSH key for user {{ USER_ID }}.
   shell: "yes y | ssh-keygen -f /home/{{ USER_ID }}/.ssh/id_rsa -q -t rsa -b 4096 -N '' >/dev/null"
+  when: not stat_result.stat.exists
 
 - name: Downloading GIT Projects.
   git:

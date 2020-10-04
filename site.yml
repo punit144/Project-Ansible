@@ -3,16 +3,11 @@
   hosts: localhost
   gather_facts: no
   roles:
-    - role: punit-facts
-      check_mode: no
-      tags: always
-    - role: update
-      when: ansible_distribution == "CentOS"
-      tags: centos_update
-    - role: punit-vim8
-      when: ansible_distribution == "CentOS"
-      tags: centos_vim
-    - role: setup-manjaro
-      when: ansible_distribution == "Archlinux"
-      tags: manjaro
+    - { role: gather-facts, check_mode: no, tags: always }
+    - { role: redhat-update, when: ansible_distribution == "CentOS",
+        tags: centos_update }
+    - { role: vim8-on-redhat, when: ansible_distribution == "CentOS",
+        tags: centos_vim }
+    - { role: setup-manjaro, when: ansible_distribution == "Archlinux",
+        tags: manjaro }
 ...

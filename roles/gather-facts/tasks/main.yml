@@ -5,20 +5,20 @@
     gather_subset: all
   register: g_fact
 
-- name: Creating facts files to /facts directory.
+- name: Deleting old facts of host {{ ansible_hostname }}.
   file:
     dest: /home/pgrewal/Project-Ansible//facts/{{ ansible_hostname }}.json
     state: absent
-    mode: '0644'
   delegate_to: localhost
 
-- name: Creating facts files to /facts directory.
+- name: Generating facts of host {{ ansible_hostname }}.
   lineinfile:
     dest: /home/pgrewal/Project-Ansible//facts/{{ ansible_hostname }}.json
     create: yes
     line: "{{ g_fact | to_nice_json }}"
+    mode: '0644'
   delegate_to: localhost
 
-- name: Facts are imported correctly validation.
+- name: Facts Validation
   debug:
     msg: hostname --{{ ansible_hostname }}--

@@ -35,16 +35,16 @@
         "ansible_date_time": {
             "date": "2020-10-04",
             "day": "04",
-            "epoch": "1601810131",
-            "hour": "16",
-            "iso8601": "2020-10-04T11:15:31Z",
-            "iso8601_basic": "20201004T164531376472",
-            "iso8601_basic_short": "20201004T164531",
-            "iso8601_micro": "2020-10-04T11:15:31.376472Z",
-            "minute": "45",
+            "epoch": "1601815029",
+            "hour": "18",
+            "iso8601": "2020-10-04T12:37:09Z",
+            "iso8601_basic": "20201004T180709117683",
+            "iso8601_basic_short": "20201004T180709",
+            "iso8601_micro": "2020-10-04T12:37:09.117683Z",
+            "minute": "07",
             "month": "10",
-            "second": "31",
-            "time": "16:45:31",
+            "second": "09",
+            "time": "18:07:09",
             "tz": "IST",
             "tz_offset": "+0530",
             "weekday": "Sunday",
@@ -420,7 +420,7 @@
             "PWD": "/home/pgrewal/Project-Ansible",
             "SHELL": "/bin/bash",
             "SHLVL": "1",
-            "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-orlrbapnowovpxhnbpclbqeimfxgloew ; /usr/bin/python /home/pgrewal/.ansible/tmp/ansible-tmp-1601810130.6204891-10453-26497798010942/AnsiballZ_setup.py",
+            "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-fzcfczhkiotimtzngycrfmxpdpwiayfc ; /usr/bin/python /home/pgrewal/.ansible/tmp/ansible-tmp-1601815027.9191477-16677-140249281818321/AnsiballZ_setup.py",
             "SUDO_GID": "1001",
             "SUDO_UID": "1000",
             "SUDO_USER": "pgrewal",
@@ -479,16 +479,16 @@
         },
         "ansible_machine": "x86_64",
         "ansible_machine_id": "48768c772e0d4f1faea1a715f1b92e78",
-        "ansible_memfree_mb": 8210,
+        "ansible_memfree_mb": 7942,
         "ansible_memory_mb": {
             "nocache": {
-                "free": 9667,
-                "used": 1885
+                "free": 9522,
+                "used": 2030
             },
             "real": {
-                "free": 8210,
+                "free": 7942,
                 "total": 11552,
-                "used": 3342
+                "used": 3610
             },
             "swap": {
                 "cached": 0,
@@ -500,18 +500,18 @@
         "ansible_memtotal_mb": 11552,
         "ansible_mounts": [
             {
-                "block_available": 97322737,
+                "block_available": 97307901,
                 "block_size": 4096,
                 "block_total": 116715171,
-                "block_used": 19392434,
+                "block_used": 19407270,
                 "device": "/dev/sda1",
                 "fstype": "ext4",
-                "inode_available": 29184622,
+                "inode_available": 29177486,
                 "inode_total": 29712384,
-                "inode_used": 527762,
+                "inode_used": 534898,
                 "mount": "/",
                 "options": "rw,noatime",
-                "size_available": 398633930752,
+                "size_available": 398573162496,
                 "size_total": 478065340416,
                 "uuid": "aca695d2-0adc-4610-aa66-24b0879c919e"
             }
@@ -593,7 +593,7 @@
         "ansible_system_capabilities": [],
         "ansible_system_capabilities_enforced": "False",
         "ansible_system_vendor": "LENOVO",
-        "ansible_uptime_seconds": 6530,
+        "ansible_uptime_seconds": 11427,
         "ansible_user_dir": "/root",
         "ansible_user_gecos": "",
         "ansible_user_gid": 0,
