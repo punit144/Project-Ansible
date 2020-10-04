@@ -40,10 +40,8 @@ GIT_LINK:
    - { link: 'https://github.com/morhetz/gruvbox.git', name: gruvbox }
    - { link: 'https://github.com/tomasr/molokai.git', name: molokai }
    - { link: 'https://github.com/preservim/nerdtree.git', name: nerdtree }
-   - { link: 'https://github.com/vim-airline/vim-airline.git',
-       name: vim-arline }
-   - { link: 'https://github.com/vim-airline/vim-airline-themes.git',
-       name: vim-airline-themes }
+   - { link: 'https://github.com/vim-airline/vim-airline.git', name: vim-arline }
+   - { link: 'https://github.com/vim-airline/vim-airline-themes.git',name: vim-airline-themes }
    - { link: 'https://github.com/tmhedberg/SimpylFold.git', name: SimplyFold }
    - { link: 'https://github.com/jnurmine/Zenburn.git', name: Zenburn }
 

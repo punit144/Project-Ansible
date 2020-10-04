@@ -1,0 +1,79 @@
+---
+# tasks file for setup-manajaro
+- name: Ensure group 'devops' and 'vboxusers' exists.
+  group:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ GROUPS }}"
+
+- name: Ensure user 'pgrewal' exist and also part of group devops.
+  user:
+    name: "{{ USER_ID }}"
+    comment: Punit Grewal
+    group: "{{ item }}"
+  loop: "{{ GROUPS }}"
+
+- name: Change password to default for 'root & pgrewal' users.
+  user:
+    name: "{{ item }}"
+    password: "{{ HASHED_KEY }}"
+    state: present
+  loop: "{{ USERS }}"
+
+- name: Add pgrewal to sudoers with no password.
+  copy:
+    src: "{{ role_path }}/files/devops"
+    dest: /etc/sudoers.d/devops
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Updating PACMAN database on your newly installed manjaro.
+  pacman:
+    update_cache: yes
+    upgrade: yes
+
+- name: Install package using PACMAN on Manjaro
+  pacman:
+    name: "{{ INSTALL_PKGS }}"
+    state: present
+
+- name: Configure virtualbox for removing errors.
+  copy:
+    src: "{{ role_path }}/files/virtualbox.conf"
+    dest: /etc/modules-load.d/virtualbox.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Configure Swappiness for Users having more then 4 GB RAM.
+  copy:
+    src: "{{ role_path }}/files/100-manjaro.conf"
+    dest: /etc/sysctl.d/100-manjaro.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Install jedi vim package VIM.
+  pip:
+    name: "{{ PY_PKGS }}"
+
+- name: Create required dirs such as .ssh
+  file:
+    path: /home/pgrewal/.ssh
+    state: directory
+    mode: '0700'
+    owner: "{{ USER_ID }}"
+    group: devops
+
+- name: generate SSH key for user {{ USER_ID }}.
+  shell: "yes y | ssh-keygen -f /home/{{ USER_ID }}/.ssh/id_rsa -q -t rsa -b 4096 -N '' >/dev/null"
+
+- name: Downloading GIT Projects.
+  git:
+    repo: "{{ item.link }}"
+    dest: "/home/{{ USER_ID }}/Downloads/{{ item.name }}"
+  loop: "{{ GIT_LINK }}"
+  tags:
+    - git_projects
+  become: false

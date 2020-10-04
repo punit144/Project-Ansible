@@ -1,0 +1,35 @@
+---
+# vars file for setup-manajaro
+HASHED_KEY: $1$Hashed$VnvTHsifQ8PP3J5WYTsqe0
+USER_ID: pgrewal
+USERS:
+  - pgrewal
+  - root
+INSTALL_PKGS:
+  - git
+  - tree
+  - guake
+  - putty
+  - virtualbox
+  - wget
+  - font-manager
+  - torbrowser-launcher
+  - screen
+  - curl
+GROUPS:
+  - devops
+  - vboxusers
+PY_PKGS:
+  - jedi
+  - pandas
+  - paramiko
+  - openpyxl
+  - numpy
+  - pyyaml
+GIT_LINK:
+   - { link: 'git@github.com:punit144/Project-Ansible.git',
+       name: Project-Ansible }
+   - { link: 'git@github.com:punit144/punit-vim.git', name: punit-vim }
+   - { link: 'git@github.com:punit144/Competitive-Programming.git',
+       name: Competitive-Programming }
+   - { link: 'git@github.com:punit144/Python-Basics.git', name: Python-Basics }
